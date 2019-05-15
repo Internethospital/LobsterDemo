@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/demo/books"
+  ],
+  "networkTimeout": {
+    "request": 60000
+  },
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#17CAA2",
+    "navigationBarTitleText": "Lobster平台小程序Demo",
+    "navigationBarTextStyle": "light"
+  },
+  "debug": true
+}

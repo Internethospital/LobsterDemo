@@ -1,0 +1,18 @@
+/**
+ * 字符串截取
+ * @val 字符串
+ * @length 截取长度
+ */
+var sub = function (val,length) {
+  if (val.length == 0 || val == undefined) {
+    return;
+  }
+  if (val.length > length) {
+    return val.substring(0, length) + "...";
+  } else {
+    return val;
+  }
+}
+module.exports={
+sub:sub,
+};
