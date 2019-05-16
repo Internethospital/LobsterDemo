@@ -1,0 +1,266 @@
+article, aside, blockquote, body, button, code, dd, details, div, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, input, legend, li, menu, nav, ol, p, pre, section, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    background-color:#fff;
+    font-family: tahoma,arial,"Hiragino Sans GB","Microsoft Yahei","\5b8b\4f53"
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+a {
+    cursor: pointer;
+}
+
+    a, a:hover {
+        text-decoration: none;
+    }
+
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.pageContent {
+    margin: 0 auto;
+    position: relative;
+}
+
+.navWrap {
+    background: #2a3241;
+    z-index: 1999;
+    box-sizing: border-box;
+    height: 72px;
+    color: #8b93a7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navWrapcon {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.navLeft {
+    float: left;
+    padding-left: 16px;
+}
+
+    .navLeft .logoTitle {
+        line-height: 72px;
+        font-size: 20px;
+        font-family: arial;
+        font-weight: 500;
+        display: block;
+        color: #8b93a7;
+    }
+
+.navRight {
+    float: right;
+}
+
+    .navRight .link {
+        position: relative;
+        z-index: 2;
+        display: inline-block;
+        /* color: #38425C;*/
+        font-size: 16px;
+        line-height: 18px;
+        height: 18px;
+        overflow: hidden;
+        padding: 27px 22px 27px 22px;
+        text-align: center;
+        color: #8b93a7;
+    }
+
+        .navRight .link:hover {
+            cursor: pointer;
+        }
+
+    .navRight .navRightcon .link:hover,
+    .navRight .navRightcon:hover .link {
+        /*	color: rgba(56,66,92,.5);*/
+        color: #fff;
+    }
+
+.navRightcon {
+    position: relative;
+    overflow: visible;
+    font-size: 14px;
+    padding: 0;
+    height: 72px;
+}
+
+.userContent {
+    display: none;
+    position: absolute;
+    top: 56px;
+    right: 0;
+    width: 100px;
+    z-index: 999;
+    padding: 5px 0;
+    line-height: 2;
+    font-size: 12px;
+    color: #fff;
+    font-family: "Microsoft YaHei", 'Segoe UI', Tahoma, sans-serif;
+    /*background: rgba(0, 0, 0, .5);*/
+    background: rgba(6,16,36,.5);
+}
+
+.navRightcon:hover .userContent {
+    display: block;
+}
+
+.userLink {
+    display: block;
+    padding: 10px 15px;
+    line-height: 1;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+
+    .userLink:hover {
+        background-color: #1c1c1c;
+        color: #fff;
+        text-decoration: none;
+        background: rgba(250, 250, 250, 0.3);
+    }
+
+.appListsout {
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 126px;
+}
+
+.appLists {
+    padding-bottom: 60px;
+}
+
+.appListcell {
+    width: 570px;
+    float: left;
+    text-align: left;
+    margin: 0 15px 30px 15px;
+    position: relative;
+}
+
+.homepage-content * {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.appItem {
+    box-shadow: 0 3px 10px 0 rgba(0,0,0,0.05);
+    border: 1px solid #f7f7f7;
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+    height: 240px;
+    position: relative;
+}
+    /*边框变颜色*/
+    .appItem:hover {
+        box-shadow: 0 3px 10px 0 rgba(16,142,233,0.25);
+        /*    border:1px solid #108ee9;*/
+        border: 1px solid #009446;
+        z-index: 10;
+    }
+
+img.appLogo {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    margin-top: -50px;
+}
+
+.appContent {
+    padding: 48px 10px 48px 160px;
+}
+
+.appTitle {
+    font-size: 28px;
+    color: #38425C;
+}
+
+.appLink {
+    font-size: 16px;
+    line-height: 24px;
+    padding: 8px 0;
+    color: #38425C;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.appListcell-tips {
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.enterBtn {
+    margin-top: 10px;
+}
+
+    .enterBtn a {
+        font-size: 16px;
+        color: #38425C;
+        display: inline-block;
+        padding: 10px 45px 10px 30px;
+        border: 1px solid transparent;
+        position: relative;
+        border-radius: 4px;
+        line-height: 20px;
+        border: 1px solid #38425C;
+    }
+/*.enterBtn a:before {
+    content: "";
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    width: 13px;
+    height: 8px;
+    background: url(../../wwwroot/resource/enterGrey.png) no-repeat;
+    background-size: 100%;
+}*/
+/*.appItem:hover .enterBtn a:before{
+    content:"";
+    width:13px;
+    height:8px;
+    background:url(../../wwwroot/resource/enterGreen.png) no-repeat;
+    background-size:100% 100%;
+}*/
+/*点击进入按钮变颜色*/
+.appItem:hover .enterBtn a {
+    color: #fff;
+    background: #009446;
+    border: 1px solid #009446;
+}
+
+/*底部*/
+.pageFooter {
+    width: 100%;
+    font-size: 14px;
+    line-height: 54px;
+    color: #8b93a7;
+    text-align: center;
+    background: #fff;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    background: #2a3241;
+    display: inline-block;
+}
+
+    .pageFooter:hover {
+        color: #fff;
+    }

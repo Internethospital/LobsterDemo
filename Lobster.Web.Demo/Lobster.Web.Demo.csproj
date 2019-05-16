@@ -5,13 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Lobster.Core.Common" Version="1.0.0" />
+    <PackageReference Include="IdentityModel" Version="3.10.6" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Redis" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.4.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="Ocelot" Version="13.0.0" />
+    <PackageReference Include="Ocelot.JwtAuthorize" Version="0.0.400" />
+    <PackageReference Include="RestSharp" Version="106.6.9" />
+    <PackageReference Include="Senparc.Weixin.Open" Version="4.4.5.1" />
   </ItemGroup>
 
 </Project>

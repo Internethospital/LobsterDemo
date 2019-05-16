@@ -1,0 +1,170 @@
+﻿@section header{
+    <link id="layuicss-layer" rel="stylesheet" href="/uiframe/layuiadmin/layui/css/modules/layer/default/layer.css?v=3.1.1" media="all">
+}
+
+<style>
+    .layui-input, .layui-select {
+        height: 34px;
+    }
+
+    .layui-form-item {
+        margin-bottom: 10px;
+    }
+
+    .layui-form-label {
+        color: #000;
+        width: 126px;
+        padding: 7px 15px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .layui-input-block {
+        margin-left: 156px;
+    }
+
+    .input-line {
+        display: flex;
+        vertical-align: middle;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tip {
+        /*flex: none;*/
+        line-height: 38px;
+    }
+
+    .input-line button {
+        margin: 0 10px;
+    }
+
+    .feature .layui-tab-title {
+        border-bottom: none;
+        /*  	margin-top: 20px;*/
+        flex-wrap: wrap;
+        display: flex;
+        height: auto;
+    }
+
+    .layui-tab-title .layui-this:after {
+        border-width: 0px;
+        pointer-events: none;
+    }
+
+    .layui-tab-title li {
+        background: #f6f6f6;
+        margin: 4px 20px 4px 0;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+
+    .feature .layui-tab-title li .layui-tab-close {
+        border-radius: 50%;
+    }
+</style>
+
+<div class="layui-fluid">
+    <form class="layui-form" lay-filter="formApp" id="formApp">
+        <div class="layui-card">
+            <div class="layui-card-body">
+                <div class="layui-form-item layui-hide">
+                    <input type="text" id="txtAppImage" name="txtAppImage" value="" />
+                    <input type="text" id="txtAppID" name="txtAppID" value="0" />
+                    <input type="text" id="txtAppKey" name="txtAppKey" value="" />
+                    <input type="text" id="txtSortNo" name="txtSortNo" value="" />
+                    <input type="text" id="username" name="username" value="" />
+                    <input type="text" name="worker" id="worker">
+                </div>
+                @*<div class="layui-row">
+                    <div class="layui-col-xs12">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><i style="color:red;">*&ensp; </i>应用key</label>
+                            <div class="layui-input-block">
+                                <input type="text" class="layui-input" id="txtAppKey" name="txtAppKey" disabled="disabled" placeholder="自动生成key" />
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+                <div class="layui-row">
+                    <div class="layui-col-xs12">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><i style="color:red;">*&ensp; </i>应用名称</label>
+                            <div class="layui-input-block">
+                                <input type="text" class="layui-input" lay-verify="required" id="txtAppName" name="txtAppName" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-row">
+                    <div class="layui-col-xs12">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">应用类型</label>
+                            <div class="layui-input-block">
+                                <select id="selAppType" name="selAppType">
+                                    <option value="1">用户集成</option>
+                                    <option value="2">权限集成</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-row">
+                    <div class="layui-col-xs12">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">应用图片</label>
+                            <div class="layui-input-block">
+                                <div class="layui-upload">
+                                    <div class="layui-inline">
+                                        <button type="button" class="layui-btn" id="btnUpload">选择图片</button>
+                                        <i style="color:#999;">图片大小不超过1M</i>
+                                    </div>
+                                    <div class="layui-upload-list">
+                                        <img class="layui-upload-img" src="~/resource/service.jpg" id="imgUpload" style="width:120px; height:90px">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-row">
+                    <div class="layui-col-xs12">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">链接地址</label>
+                            <div class="layui-input-block">
+                                <input type="text" lay-verify="customUrl" class="layui-input" maxlength="200" id="txtAppUrl" name="txtAppUrl" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item layui-hide">
+                    <input type="button" lay-submit lay-filter="btnSubmit" id="btnSubmit" value="确认">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item layui-hide">
+            <input type="button" lay-submit lay-filter="LAY-app-front-submit" id="LAY-app-front-submit" value="保存">
+            <input type="button" lay-cancel lay-filter="LAY-app-front-cancel" id="LAY-app-front-cancel" value="取消">
+            <input type="reset" id="LAY-app-form-reset" value="重置">
+        </div>
+    </form>
+</div>
+
+    <script>
+        layui.config({
+            base: '/uiframe/layuiadmin/' //静态资源所在路径
+        }).extend({
+            index: 'lib/index' //主入口模块
+        });
+        layui.extend({
+            appform: '{/}/userJs/appform' // {/}的意思即代表采用自有路径，即不跟随 base 路径
+        })
+        layui.use(['index', 'appform'], function () { });
+    </script>
+
+
+

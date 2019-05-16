@@ -1,0 +1,68 @@
+﻿@section header{
+    <link id="layuicss-layer" rel="stylesheet" href="/uiframe/layuiadmin/layui/css/modules/layer/default/layer.css?v=3.1.1" media="all">
+    <link href="../../uiframe/layuiadmin/layui/css/modules/layui-icon-extend/iconfont.css" rel="stylesheet" />
+}
+<style>
+    .layui-btn {
+        vertical-align: top;
+    }
+</style>
+
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-form layui-card-header layuiadmin-card-header-auto">
+            <div class="layui-input-inline">
+                <label class="layui-form-label">书籍名称：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="txtName" placeholder="请输入名称查询" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-input-inline">
+                <button class="layui-btn layuiadmin-btn-useradmin" lay-submit lay-filter="LAY-app-front-search" id="btnSearch">
+                    <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>查找
+                </button>
+            </div>
+        </div>
+
+        <div class="layui-card-body">
+            <script id="toolbar" type="text/html">
+                <div class="layui-btn-group">
+                    <button class="layui-btn layui-btn-sm" lay-event="add"><i class="layui-icon layui-icon-add-1"></i>添加</button>
+                </div>
+            </script>
+            <table id="bookTable" lay-filter="bookTable"></table>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="flagTpl">
+    {{#  if(d.Flag == '1'){ }}
+    <span style="color:red;">已停用</span>
+    {{#  } else { }}
+    正常
+    {{#  } }}
+</script>
+<script type="text/html" id="createDate">
+    {{ layui.util.toDateString(new Date(d.CreateDate).getTime(), 'yyyy-MM-dd HH:mm:ss') }}
+</script>
+
+<script type="text/html" id="option">
+    <a class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon layui-icon-edit"></i>编辑</a>
+    {{#  if(d.Flag == '0'){ }}
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="disable"><i class="layui-icon layui-extend-stop"></i>停用</a>
+    {{#  } else { }}
+    <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="enable"><i class="layui-icon layui-icon-ok"></i>启用</a>
+    {{#  } }}
+</script>
+
+<script>
+    layui.config({
+        base: '/uiframe/layuiadmin/' //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    });
+    layui.extend({
+        book: '{/}/userJs/book' // {/}的意思即代表采用自有路径，即不跟随 base 路径
+    })
+    layui.use(['index', 'book'], function () { });
+</script>

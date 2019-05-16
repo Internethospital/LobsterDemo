@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lobster.Service.Demo</name>
+    </assembly>
+    <members>
+        <member name="T:Lobster.Service.Demo.Controllers.BookController">
+            <summary>
+            应用管理
+            </summary>
+        </member>
+        <member name="M:Lobster.Service.Demo.Controllers.BookController.#ctor(Core.Common.Helper.IApiHelper)">
+            <summary>
+            应用管理
+            </summary>
+            <param name="apiHelper"></param>
+        </member>
+        <member name="M:Lobster.Service.Demo.Controllers.BookController.GetBookData(System.String,System.Int32,System.Int32)">
+            <summary>
+            获取书籍
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lobster.Service.Demo.Controllers.BookController.SaveBook">
+            <summary>
+            保存书籍
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lobster.Service.Demo.Controllers.BookController.DeleteBook">
+            <summary>
+            删除书籍
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Lobster.Service.Demo.Dao.BookDao">
+            <summary>
+            Demo DAO
+            </summary>
+        </member>
+        <member name="M:Lobster.Service.Demo.Dao.BookDao.GetBookData(System.String,Core.Common.Data.PageInfo@)">
+            <summary>
+            获取书籍数据
+            </summary>
+            <param name="bookName">查询名称</param>
+            <param name="pageinfo">分页对象</param>
+            <returns></returns>
+        </member>
+        <member name="T:Lobster.Service.Demo.Startup">
+            <summary>
+            启动入口 
+            </summary>
+        </member>
+        <member name="F:Lobster.Service.Demo.Startup.provider">
+            <summary>
+            Api版本提者信息
+            </summary>
+        </member>
+        <member name="M:Lobster.Service.Demo.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            启动
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:Lobster.Service.Demo.Startup.ValidatePermission(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            JWT验证身份
+            </summary>
+            <param name="httpContext"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

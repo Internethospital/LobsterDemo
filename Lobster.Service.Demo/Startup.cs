@@ -73,15 +73,15 @@ namespace Lobster.Service.Demo
                     options.SwaggerDoc(description.GroupName,
                         new Info()
                         {
-                            Title = "单点登录微服务接口 v" + description.ApiVersion,
+                            Title = "Lobster Demo服务 v" + description.ApiVersion,
                             Version = description.ApiVersion.ToString(),
-                            Contact = new Contact { Email = "343588387@qq.com", Name = "SSO.Service", Url = "http://0.0.0.0" },
+                            Contact = new Contact { Email = "343588387@qq.com", Name = "Lobster.Service.Demo", Url = "http://0.0.0.0" },
                             Description = "切换版本请点右上角版本切换"
                         }
                     );
                 }
                 var basePath = PlatformServices.Default.Application.ApplicationBasePath;
-                var xmlPath = Path.Combine(basePath, "SSO.Service.xml");
+                var xmlPath = Path.Combine(basePath, "Lobster.Service.Demo.xml");
                 options.IncludeXmlComments(xmlPath);
 
                 options.AddSecurityDefinition("Bearer", new ApiKeyScheme { In = "header", Description = "请输入带有Bearer的Token", Name = "Authorization", Type = "apiKey" });
@@ -105,13 +105,13 @@ namespace Lobster.Service.Demo
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //将Redis分布式缓存服务添加到服务中
-            services.AddDistributedRedisCache(options =>
-            {
-                //用于连接Redis的配置  
-                options.Configuration = Configuration.GetConnectionString("RedisConnection");//读取配置信息的串
-                //Redis实例名RedisDistributedCache
-                options.InstanceName = "SSORedisCache";
-            });
+            //services.AddDistributedRedisCache(options =>
+            //{
+            //    //用于连接Redis的配置  
+            //    options.Configuration = Configuration.GetConnectionString("RedisConnection");//读取配置信息的串
+            //    //Redis实例名RedisDistributedCache
+            //    options.InstanceName = "SSORedisCache";
+            //});
             //支持跨域
             services.AddCors(options =>
             {
