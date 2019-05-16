@@ -4,6 +4,7 @@ using Core.Common.Helper;
 using Microsoft.AspNetCore.Mvc;
 using Lobster.Service.Demo.Dao;
 using System;
+using Lobster.Service.Demo.Entity;
 
 namespace Lobster.Service.Demo.Controllers
 {
@@ -31,12 +32,8 @@ namespace Lobster.Service.Demo.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public object GetBookData(string bookName,int page,int limit)
+        public Response GetBookData(string bookName,int page,int limit)
         {
-            //string bookName = Request.Query["bookName"];
-            //int page = Convert.ToInt32(Request.Query["page"]);
-            //int limit = Convert.ToInt32(Request.Query["limit"]);
-
             var response = new Response();
             PageInfo pageinfo = new PageInfo(limit, page);
             pageinfo.OrderBy = new string[] { "Id" };
@@ -51,9 +48,13 @@ namespace Lobster.Service.Demo.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public object SaveBook()
+        public Response SaveBook([FromBody]Book book)
         {
             var response = new Response();
+
+            var result = NewDao<AbstractDao>().Save<Book>(book);
+            response.AddData("result", result);
+
             return response;
         }
 
@@ -62,9 +63,12 @@ namespace Lobster.Service.Demo.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public object DeleteBook()
+        public Response DeleteBook([FromForm]int Id)
         {
             var response = new Response();
+
+            var result = NewDao<BookDao>().DeleteBook(Id);
+            response.AddData("result", result);
             return response;
         }
     }

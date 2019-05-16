@@ -21,13 +21,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Lobster.Service.Demo.Controllers.BookController.SaveBook">
+        <member name="M:Lobster.Service.Demo.Controllers.BookController.SaveBook(Lobster.Service.Demo.Entity.Book)">
             <summary>
             保存书籍
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Lobster.Service.Demo.Controllers.BookController.DeleteBook">
+        <member name="M:Lobster.Service.Demo.Controllers.BookController.DeleteBook(System.Int32)">
             <summary>
             删除书籍
             </summary>
@@ -44,6 +44,13 @@
             </summary>
             <param name="bookName">查询名称</param>
             <param name="pageinfo">分页对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lobster.Service.Demo.Dao.BookDao.DeleteBook(System.Int32)">
+            <summary>
+            删除书籍
+            </summary>
+            <param name="Id">Id</param>
             <returns></returns>
         </member>
         <member name="T:Lobster.Service.Demo.Startup">

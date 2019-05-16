@@ -39,7 +39,7 @@ layui.define(['layer', 'form', 'element', 'table', 'index'], function (exports) 
 
     //查找reload,通过条件，查询网格的table重载数据显示到界面
     form.on("submit(LAY-app-front-search)", function (data) {
-        AppDt.reload({
+        booktable.reload({
             where: {
                 //token: layui.data(setter.tableName)['token'],
                 txtname: data.field.txtName
@@ -78,12 +78,12 @@ layui.define(['layer', 'form', 'element', 'table', 'index'], function (exports) 
                             console.log(field);
                             admin.req({
                                 type: 'post',
-                                url: '/App/SaveAppData',
+                                url: '/book/savebook',
                                 data: field,
                                 done: function (obj) {
                                     layer.msg("保存成功");
                                     //提交 Ajax 成功后，静态更新表格中的数据
-                                    AppDt.reload(); //数据刷新
+                                    booktable.reload(); //数据刷新
                                     layer.close(index); //关闭弹层
                                 }
                             });
@@ -96,13 +96,13 @@ layui.define(['layer', 'form', 'element', 'table', 'index'], function (exports) 
     });
 
     //监听行工具事件
-    table.on('tool(bookTable)', function (obj) {  //tool是工具条事件名，SSOAppTable是table原始容器的属性
+    table.on('tool(bookTable)', function (obj) {  //tool是工具条事件名，table原始容器的属性
         var data = obj.data;//当前行数据
         var layEvent = obj.event;//获得lay-event的值
         if (obj.event === "edit") {
             layer.open({
                 type: 2
-                , title: '编辑应用信息'
+                , title: '编辑书籍'
                 , content: '/book/bookform'
                 , area: ['680px', '480px']  //宽，高
                 , btn: ['保存', '取消']
@@ -110,22 +110,14 @@ layui.define(['layer', 'form', 'element', 'table', 'index'], function (exports) 
                     setTimeout(function () {
                         //执行完毕，layer的动画一般是执行500毫秒
                         var iframeWin = window['layui-layer-iframe' + index];
-                        var othis = layero.find('iframe').contents().find("#formApp");
-                        othis.find('input[name="txtAppID"]').val(data.AppId);
-                        othis.find('input[name="txtAppKey"]').val(data.AppKey);
-                        othis.find('input[name="txtAppName"]').val(data.AppName);
-                        othis.find('select[name="selAppType"]').val(data.AppType);
-                        othis.find('input[name="txtAppUrl"]').val(data.AppUrl);
-                        othis.find('input[name="txtAppImage"]').val(data.AppImage);
-                        othis.find('input[name="txtSortNo"]').val(data.SortNo);
-                        othis.find("#txtAppKey").attr("disabled", true);
+                        var othis = layero.find('iframe').contents().find("#formBook");
 
-                        if (data.AppImage == "")
-                            othis.find("#imgUpload").attr("src", "resource/service.jpg");
-                        else
-                            othis.find("#imgUpload").attr("src", data.AppImage);
+                        othis.find('input[name="Id"]').val(data.Id);
+                        othis.find('input[name="BookName"]').val(data.BookName);
+                        othis.find('input[name="BuyPrice"]').val(data.BuyPrice);
+                        othis.find('input[name="Flag"]').val(data.Flag);
+                        othis.find('input[name="WorkId"]').val(data.WorkId);
 
-                        iframeWin.layui.form.render("select");
                     }, 500);
                 }
                 , btn2: function (index, layero) {
@@ -146,12 +138,12 @@ layui.define(['layer', 'form', 'element', 'table', 'index'], function (exports) 
                         var load = layer.msg('正在处理，请稍候', { icon: 16, time: 0, shade: [0.3, '#393D49'] });
                         admin.req({
                             type: 'post'
-                            , url: '/App/SaveAppData'
+                            , url: '/book/savebook'
                             , data: field
                             , done: function (res) {
                                 layer.msg("保存成功");
                                 //提交 Ajax 成功后，静态更新表格中的数据
-                                AppDt.reload(); //数据刷新
+                                booktable.reload(); //数据刷新
                                 layer.close(index); //关闭弹层
                             }
                         });
@@ -166,7 +158,7 @@ layui.define(['layer', 'form', 'element', 'table', 'index'], function (exports) 
             // 启用停用机构
             var confirm_msg = "";
             var status = 0;
-            if (data.DelFlag == 0) {
+            if (data.Flag == 0) {
                 confirm_msg = "确认停用么?";
                 status = 1;
             }
@@ -179,14 +171,13 @@ layui.define(['layer', 'form', 'element', 'table', 'index'], function (exports) 
                 function (index) {
                     admin.req({
                         type: "post",
-                        url: "/App/FlagApp",
+                        url: "/book/deletebook",
                         data: {
-                            token: layui.data(setter.tableName)["token"],
-                            txtAppId: data.AppId,
-                            txtDelFlag: status
+                            //token: layui.data(setter.tableName)["token"],
+                            Id: data.Id
                         },
                         done: function (res) {
-                            AppDt.reload();// 数据刷新
+                            booktable.reload();// 数据刷新
                             layer.close(index); //关闭弹层
                         }
                     });

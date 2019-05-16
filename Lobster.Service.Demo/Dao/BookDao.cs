@@ -25,5 +25,15 @@ namespace Lobster.Service.Demo.Dao
             return connection.Query<Entity.Book>(strSql);
         }
 
+        /// <summary>
+        /// 删除书籍
+        /// </summary>
+        /// <param name="Id">Id</param>
+        /// <returns></returns>
+        public bool DeleteBook(int Id)
+        {
+            string strSql = @"update books set flag=1 where id=@Id";
+            return connection.Execute(strSql, new { Id = Id }) > 0;
+        }
     }
 }
