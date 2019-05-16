@@ -32,7 +32,7 @@ namespace Lobster.Service.Demo.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult<Response> GetBookData([FromQuery(Name = "page")]int page, [FromQuery(Name = "limit")]int limit,[FromQuery(Name = "bookName")]string bookName)
+        public ActionResult<Response> GetBookData(int page, int limit,string bookName)
         {
             var response = new Response();
             PageInfo pageinfo = new PageInfo(limit, page);

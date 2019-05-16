@@ -34,18 +34,21 @@ namespace Lobster.Web.Demo.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public object GetBookList()
+        public object GetBookList([FromQuery(Name = "page")]string page, [FromQuery(Name = "limit")]string limit, [FromQuery(Name = "txtname")]string bookName)
         {
-            var dic = new Dictionary<string, object>();
-            dic.Add("bookName", Request.Query["txtname"]);
-            dic.Add("page", Request.Query["page"]);//当前页
-            dic.Add("limit", Request.Query["limit"]);//每页多少条
-            var response = RestHelper.GetResponseData("Lobster.Service.Demo", "/demo/v1/book/getbookdata", dic);
-           
-            if (response.Data != null)
+            //实例化RestRequest
+            var request = new RestRequest("/demo/v1/book/getbookdata");
+            //增加参数
+            request.AddQueryParameter("page", page);
+            request.AddQueryParameter("limit", limit);
+            request.AddQueryParameter("bookName", bookName);
+            //执行请求
+            var responseData = RestHelper.ExecuteGet<Response>("Lobster.Service.Demo", request);
+
+            if (responseData != null)
             {
-                var data = response.Data.GetData<dynamic>("data");
-                var count = Convert.ToInt32(response.Data.GetData<string>("count"));
+                var data = responseData.GetData<dynamic>("data");
+                var count = Convert.ToInt32(responseData.GetData<string>("count"));
                 if (count > 0)
                     return ToTableJson(count, data);
                 else
@@ -58,28 +61,28 @@ namespace Lobster.Web.Demo.Controllers
         }
 
         [HttpPost]
-        public object SaveBook()
+        public object SaveBook([FromForm]Book book)
         {
-            Book book = new Book();
-            book.Id = Convert.ToInt32(Request.Form["Id"]);
-            book.BookName = Request.Form["BookName"].ToString();
-            book.BuyPrice = Convert.ToDecimal(Request.Form["BuyPrice"]);
-            book.Flag= Convert.ToInt32(Request.Form["Flag"]);
-            book.WorkId= Convert.ToInt32(Request.Form["WorkId"]);
-
-            var request = new RestRequest();
-            request.Resource = "/demo/v1/book/savebook";
-            var responseData = RestHelper.ExecutePost<Response, Book>("Lobster.Service.Demo", request, book);
+            //实例化RestRequest
+            var request = new RestRequest("/demo/v1/book/savebook");
+            //增加参数
+            request.AddJsonBody(book);
+            //执行请求
+            var responseData = RestHelper.ExecutePost<Response>("Lobster.Service.Demo", request);
             return responseData;
         }
 
         [HttpPost]
-        public object DeleteBook()
+        public object DeleteBook([FromForm]int Id)
         {
-            var dic = new Dictionary<string, object>();
-            dic.Add("Id", Request.Form["Id"]);
-            var response = RestHelper.GetResponseData("Lobster.Service.Demo", "/demo/v1/book/deletebook", dic, Method.POST);
-            return response.Data;
+            //实例化RestRequest
+            var request = new RestRequest("/demo/v1/book/deletebook");
+            //增加参数
+            request.AddParameter("Id", Id);
+            //执行请求
+            var responseData = RestHelper.ExecutePost<Response>("Lobster.Service.Demo", request);
+
+            return responseData;
         }
     }
 }
