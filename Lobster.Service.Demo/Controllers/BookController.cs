@@ -32,7 +32,7 @@ namespace Lobster.Service.Demo.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public Response GetBookData(string bookName,int page,int limit)
+        public ActionResult<Response> GetBookData([FromQuery(Name = "page")]int page, [FromQuery(Name = "limit")]int limit,[FromQuery(Name = "bookName")]string bookName)
         {
             var response = new Response();
             PageInfo pageinfo = new PageInfo(limit, page);
@@ -48,13 +48,13 @@ namespace Lobster.Service.Demo.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public Response SaveBook([FromBody]Book book)
+        public ActionResult<Response> SaveBook([FromBody]Book book)
         {
             var response = new Response();
 
             var result = NewDao<AbstractDao>().Save<Book>(book);
             response.AddData("result", result);
-
+            
             return response;
         }
 
@@ -63,7 +63,7 @@ namespace Lobster.Service.Demo.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public Response DeleteBook([FromForm]int Id)
+        public ActionResult<Response> DeleteBook([FromForm]int Id)
         {
             var response = new Response();
 

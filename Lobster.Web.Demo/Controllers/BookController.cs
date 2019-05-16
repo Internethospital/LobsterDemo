@@ -49,11 +49,11 @@ namespace Lobster.Web.Demo.Controllers
                 if (count > 0)
                     return ToTableJson(count, data);
                 else
-                    return new Response(1, "无应用数据");
+                    return new Response(1, "无数据");
             }
             else
             {
-                return new Response(1, "无应用数据");
+                return new Response(1, "无数据");
             }
         }
 
@@ -69,8 +69,8 @@ namespace Lobster.Web.Demo.Controllers
 
             var request = new RestRequest();
             request.Resource = "/demo/v1/book/savebook";
-            var response = RestHelper.ExecutePost<Response, Book>("Lobster.Service.Demo", request, book);
-            return response;
+            var responseData = RestHelper.ExecutePost<Response, Book>("Lobster.Service.Demo", request, book);
+            return responseData;
         }
 
         [HttpPost]
