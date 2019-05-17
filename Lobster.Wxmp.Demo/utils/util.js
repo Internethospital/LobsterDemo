@@ -14,6 +14,21 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const getResponseCode=(res)=>{
+  return res.data.code
+}
+
+const getResponseMsg = (res) => {
+  return res.data.msg
+}
+
+const getResponseData = (res, key) => {
+  return JSON.parse(res.data.data[key])
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  getResponseCode: getResponseCode,
+  getResponseMsg: getResponseMsg,
+  getResponseData: getResponseData
 }

@@ -37,7 +37,7 @@
 
 <script type="text/html" id="flagTpl">
     {{#  if(d.Flag == '1'){ }}
-    <span style="color:red;">已停用</span>
+    <span style="color:red;">丢失</span>
     {{#  } else { }}
     正常
     {{#  } }}
@@ -46,9 +46,9 @@
 <script type="text/html" id="option">
     <a class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon layui-icon-edit"></i>编辑</a>
     {{#  if(d.Flag == '0'){ }}
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="disable"><i class="layui-icon layui-extend-stop"></i>停用</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="disable"><i class="layui-icon layui-extend-stop"></i>丢失</a>
     {{#  } else { }}
-    <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="enable"><i class="layui-icon layui-icon-ok"></i>启用</a>
+    <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="enable"><i class="layui-icon layui-icon-ok"></i>找回</a>
     {{#  } }}
 </script>
 

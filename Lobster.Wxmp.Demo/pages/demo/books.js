@@ -1,5 +1,6 @@
 var base64 = require("../images/base64");
 var config = require('../../config.js');
+var util = require('../../utils/util.js');
 // pages/demo/books.js
 Page({
 
@@ -7,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    BooksList:["kakake","曾浩"],
+    BooksList:[{"Id":"1","BookName":"小程序开发","BuyPrice":"20.00","Flag":"0","WorkdId":"1"}],
     token:""
   },
 
@@ -21,40 +22,21 @@ Page({
       icon20: base64.icon20,
       icon60: base64.icon60
     });
-
-    that.gettoken(function(){
-      that.getbooks();
-    });
+      
+    that.getbooks();
   },
-/*
-获取Token
-*/
-gettoken:function(callback){
-  let that = this;
-  wx.request({
-    url: config.serverUrl + 'auth/login',
-    data: {},
-    success: res => {
-      console.log(res.data);
-      that.setData({ token: res.data.tokenValue });
-      if(callback){
-            callback();
-      }
-    }
-  });
-},
 /**
  * 获取书籍
  */
 getbooks:function(){
   let that = this;
   wx.request({
-    url: config.serverUrl + 'api/books',
-    data: {},
-    header: { 'Authorization': 'Bearer ' +that.data.token},
+    url: config.serverUrl + 'demo/v1/book/getbookdata',
+    data: { page: 1, limit: 10, bookName:''},
+    //header: { 'Authorization': 'Bearer ' +that.data.token},
     success: res => {
-      console.log(res.data);
-      that.setData({ BooksList: res.data });
+      console.log(util.getResponseCode(res));
+      that.setData({ BooksList: util.getResponseData(res,'data') });
     }
   });
 }

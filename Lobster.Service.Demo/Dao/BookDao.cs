@@ -20,7 +20,7 @@ namespace Lobster.Service.Demo.Dao
         /// <returns></returns>
         public dynamic GetBookData(string bookName, ref PageInfo pageinfo)
         {
-            string strSql = @"select * from books ";
+            string strSql = string.Format(@"select * from books where bookname like '%{0}%'", bookName);
             strSql = SqlPage.FormatSql(DatabaseType.SqlServer, strSql, pageinfo, connection);
             return connection.Query<Entity.Book>(strSql);
         }
