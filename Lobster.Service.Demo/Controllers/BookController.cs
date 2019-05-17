@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Lobster.Service.Demo.Dao;
 using System;
 using Lobster.Service.Demo.Entity;
+using Microsoft.AspNetCore.Cors;
 
 namespace Lobster.Service.Demo.Controllers
 {
@@ -12,6 +13,7 @@ namespace Lobster.Service.Demo.Controllers
     /// 应用管理
     /// </summary>
     [ApiVersion("1.0")]
+    [EnableCors("AllowSameDomain")]//启用跨域
     [Route("demo/v{version:apiVersion}/[controller]/[action]")]
     [ApiController]
     public class BookController : ApiControllerBase

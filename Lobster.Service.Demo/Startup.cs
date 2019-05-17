@@ -120,8 +120,8 @@ namespace Lobster.Service.Demo
                     builder.AllowAnyOrigin() //允许任何来源的主机访问          
                     //.WithOrigins("http://localhost:8080") ////允许http://localhost:8080的主机访问
                     .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .AllowCredentials();//指定处理cookie
+                    .AllowAnyHeader();
+                    //.AllowCredentials();//指定处理cookie
                 });
             });
             services.AddSession();
@@ -156,6 +156,7 @@ namespace Lobster.Service.Demo
                 app.UseHsts();
             }
             app.UseMvc();
+            app.UseCors("AllowSameDomain");
             app.UseSession();
             app.UseMvcWithDefaultRoute();
             app.UseSwagger().UseSwaggerUI(options =>

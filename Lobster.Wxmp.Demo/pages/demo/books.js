@@ -9,7 +9,9 @@ Page({
    */
   data: {
     BooksList:[{"Id":"1","BookName":"小程序开发","BuyPrice":"20.00","Flag":"0","WorkdId":"1"}],
-    token:""
+    token:"",
+    icon20: base64.icon20,
+    icon60: base64.icon60
   },
 
   /**
@@ -17,12 +19,7 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
-
-    that.setData({
-      icon20: base64.icon20,
-      icon60: base64.icon60
-    });
-      
+    //获取书籍
     that.getbooks();
   },
 /**
