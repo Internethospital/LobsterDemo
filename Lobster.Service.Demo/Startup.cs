@@ -73,15 +73,15 @@ namespace Lobster.Service.Demo
                     options.SwaggerDoc(description.GroupName,
                         new Info()
                         {
-                            Title = "Lobster Demo服务 v" + description.ApiVersion,
+                            Title = Configuration["Swagger:Title"] + description.ApiVersion,
                             Version = description.ApiVersion.ToString(),
-                            Contact = new Contact { Email = "343588387@qq.com", Name = "Lobster.Service.Demo", Url = "http://0.0.0.0" },
+                            Contact = new Contact { Email = Configuration["Swagger:Email"], Name = Configuration["Swagger:Name"], Url = Configuration["Swagger:Url"] },
                             Description = "切换版本请点右上角版本切换"
                         }
                     );
                 }
                 var basePath = PlatformServices.Default.Application.ApplicationBasePath;
-                var xmlPath = Path.Combine(basePath, "Lobster.Service.Demo.xml");
+                var xmlPath = Path.Combine(basePath, Configuration["Swagger:XmlCommentPath"]);
                 options.IncludeXmlComments(xmlPath);
 
                 options.AddSecurityDefinition("Bearer", new ApiKeyScheme { In = "header", Description = "请输入带有Bearer的Token", Name = "Authorization", Type = "apiKey" });

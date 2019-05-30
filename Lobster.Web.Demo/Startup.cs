@@ -54,14 +54,6 @@ namespace Lobster.Web.Demo
             .AddXmlSerializerFormatters()
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            //将Redis分布式缓存服务添加到服务中
-            //services.AddDistributedRedisCache(options =>
-            //{
-            //    //用于连接Redis的配置  
-            //    options.Configuration = Configuration.GetConnectionString("RedisConnection");//读取配置信息的串
-            //    //Redis实例名RedisDistributedCache
-            //    options.InstanceName = "SSORedisCache";
-            //});
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
