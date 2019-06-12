@@ -6,7 +6,7 @@
     <members>
         <member name="T:Lobster.Service.Demo.Controllers.BookController">
             <summary>
-            应用管理
+            书籍管理
             </summary>
         </member>
         <member name="M:Lobster.Service.Demo.Controllers.BookController.#ctor(Core.Common.Helper.IApiHelper)">

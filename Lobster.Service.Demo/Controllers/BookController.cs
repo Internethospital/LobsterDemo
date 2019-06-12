@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Cors;
 namespace Lobster.Service.Demo.Controllers
 {
     /// <summary>
-    /// 应用管理
+    /// 书籍管理
     /// </summary>
     [ApiVersion("1.0")]
     [EnableCors("AllowSameDomain")]//启用跨域

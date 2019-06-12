@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  lobster.web.demo:
+    image: lobster.web.demo
+    build:
+      context: .
+      dockerfile: Lobster.Web.Demo/Dockerfile
+    container_name: lobster.web.demo
+  lobster.service.demo:
+    image: lobster.service.demo
+    build:
+      context: .
+      dockerfile: Lobster.Service.Demo/Dockerfile
+    container_name: lobster.service.demo

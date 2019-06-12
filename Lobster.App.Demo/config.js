@@ -4,5 +4,5 @@
 var config = {
   //服务请求域名
   //需要用到natapp才能在真机上调试
-  serverUrl: 'http://q47k5w.natappfree.cc/'
+  serverUrl: 'http://hdcmn2.natappfree.cc/'
 }
