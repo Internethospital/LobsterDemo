@@ -25,5 +25,5 @@ WORKDIR /app
 COPY . .
 EXPOSE 80
 EXPOSE 443
-COPY ${source:-publish/} .
+COPY ${source:-Lobster.Service.Demo/publish/} .
 ENTRYPOINT ["dotnet", "Lobster.Service.Demo.dll"]
