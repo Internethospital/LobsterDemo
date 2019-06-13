@@ -5,8 +5,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "6000:80"
-      - "6001:443"
+      - "5100:80"
+      - "5101:443"
     restart: always
   lobster.service.demo:
     environment:
