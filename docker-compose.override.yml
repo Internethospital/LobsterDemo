@@ -4,6 +4,8 @@ services:
   lobster.web.demo:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - TZ=Asia/Shanghai
+      - ASPNETCORE_HOSTINGSTARTUPASSEMBLIES=SkyAPM.Agent.AspNetCore
     ports:
       - "5100:80"
       - "5101:443"
@@ -11,6 +13,8 @@ services:
   lobster.service.demo:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - TZ=Asia/Shanghai
+      - ASPNETCORE_HOSTINGSTARTUPASSEMBLIES=SkyAPM.Agent.AspNetCore
     ports:
       - "5000:80"
       - "5001:443"
