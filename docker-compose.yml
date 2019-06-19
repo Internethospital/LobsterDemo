@@ -13,3 +13,9 @@ services:
       context: .
       dockerfile: Lobster.Service.Demo/Dockerfile
     container_name: lobster.service.demo
+  lobster.quartz:
+    image: lobster.quartz
+    build:
+      context: .
+      dockerfile: Lobster.Quartz/Dockerfile
+    container_name: lobster.quartz
