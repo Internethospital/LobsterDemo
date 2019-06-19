@@ -26,3 +26,11 @@ services:
     ports:
       - "5200:80"
     restart: always
+  lobster.gateway:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - TZ=Asia/Shanghai
+    ports:
+      - "5500:80"
+      - "5501:443"
+    restart: always

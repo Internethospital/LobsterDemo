@@ -1,0 +1,18 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/demo/{url}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/demo/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Put" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.17.0.1",
+          "Port": 5000
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+  }
+}
