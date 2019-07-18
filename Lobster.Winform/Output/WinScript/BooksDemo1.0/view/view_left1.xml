@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<viewform>  
+  <winform size="880,500" tabindex="0" text="Books" name="frmBookManagerEx2" visible="false" width="880">
+    <panel type="panel" dock="fill" location="0,0" name="panel2" size="864,462" tabindex="0" width="864">
+      <button type="button" text="Button1" location="339,232" name="Button1" size="75,23" tabindex="2" width="75" />
+      <tool type="toolstrip" location="0,0" name="ToolStrip1" size="864,25" tabindex="0" width="864">
+        <toolitem type="toolStripButton" name="btnadd" size="36,22" text="新增" width="36" />
+        <toolitem type="toolStripButton" name="btnalter" size="36,22" text="修改" width="36" />
+        <toolitem type="toolStripButton" name="btndelete" size="36,22" text="删除" width="36" />
+        <toolitem type="toolStripButton" name="btnclose" size="36,22" text="退出" width="36" />
+      </tool>
+      <datagrid type="datagridview" dock="fill" location="0,0" name="gridbooks" size="864,462" tabindex="1" width="864">
+        <column type="datagridtextbox" datapropertyname="Id" headertext="编码" miniwidth="50" name="column1" />
+        <column type="datagridtextbox" autosizemode="fill" datapropertyname="BookName" headertext="书籍名称" miniwidth="50" name="column2" />
+        <column type="datagridtextbox" datapropertyname="BuyPrice" headertext="购买时间" miniwidth="50" name="column3" />
+        <column type="datagridtextbox" datapropertyname="BuyDate" headertext="购买价格" miniwidth="50" name="column4" />
+        <column type="datagridcheckbox" datapropertyname="Flag" headertext="是否丢失" miniwidth="50" name="column5" />
+      </datagrid>
+    </panel>
+  </winform>
+</viewform>

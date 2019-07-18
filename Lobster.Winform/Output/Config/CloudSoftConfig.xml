@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cloudsoftList>
+  <cloudsoftClient name="BooksDemo" path="WinScript/BooksDemo1.0/config.xml" title="书籍示例" version="1.0">
+  </cloudsoftClient>
+</cloudsoftList>

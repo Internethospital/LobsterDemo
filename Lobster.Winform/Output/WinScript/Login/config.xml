@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<cloudsoft name="Login" title="登录权限" version="1.0" author="kakake">
+		<AssemblyList>
+			<Assembly name="Login.Winform" path="WinAssembly/Login.Winform.dll" />
+      <Assembly name="LoginWeb.Winform" path="WinAssembly/LoginWeb.Winform.dll" />
+		</AssemblyList>
+	</cloudsoft>
+</configuration>

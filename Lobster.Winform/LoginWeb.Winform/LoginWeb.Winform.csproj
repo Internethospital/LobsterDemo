@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FFADF00A-09F3-4F94-983C-F64D062F83BC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LoginWeb.Winform</RootNamespace>
+    <AssemblyName>LoginWeb.Winform</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CefSharp, Version=49.0.1.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\_efwplusRuntime\efwplusClient\CefSharp\CefSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.BrowserSubprocess.Core, Version=49.0.1.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\_efwplusRuntime\efwplusClient\CefSharp\CefSharp.BrowserSubprocess.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.Core, Version=49.0.1.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\_efwplusRuntime\efwplusClient\CefSharp\CefSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.WinForms, Version=49.0.1.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\_efwplusRuntime\efwplusClient\CefSharp\CefSharp.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=14.0.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="EfwControls, Version=2.9.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\_Reactor\EfwControls.dll</HintPath>
+    </Reference>
+    <Reference Include="EFWCoreLib.ClientProxy">
+      <HintPath>..\..\_Reactor\EFWCoreLib.ClientProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="efwplusWinform">
+      <HintPath>..\..\_Reactor\efwplusWinform.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\BrowserPageController.cs" />
+    <Compile Include="Controller\CustomConfigManager.cs" />
+    <Compile Include="Controller\WebLoginController.cs" />
+    <Compile Include="Controller\WebLoginOtherController.cs" />
+    <Compile Include="IView\IfrmBrowserMain.cs" />
+    <Compile Include="IView\IfrmBrowserPage.cs" />
+    <Compile Include="IView\IfrmLogin.cs" />
+    <Compile Include="IView\IfrmPassWord.cs" />
+    <Compile Include="IView\IFrmReportConfigure.cs" />
+    <Compile Include="IView\IfrmReSetDept.cs" />
+    <Compile Include="IView\IfrmSetting.cs" />
+    <Compile Include="Model\BaseDept.cs" />
+    <Compile Include="Model\BaseDeptLayer.cs" />
+    <Compile Include="Model\BaseEmpDept.cs" />
+    <Compile Include="Model\BaseEmployee.cs" />
+    <Compile Include="Model\BaseGroup.cs" />
+    <Compile Include="Model\BaseGroupMenu.cs" />
+    <Compile Include="Model\BaseGroupUser.cs" />
+    <Compile Include="Model\BaseMenu.cs" />
+    <Compile Include="Model\BaseMessage.cs" />
+    <Compile Include="Model\BaseModule.cs" />
+    <Compile Include="Model\BaseUser.cs" />
+    <Compile Include="Model\BaseWorkers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewForm\FrmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewForm\FrmAbout.Designer.cs">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewForm\FrmBrowserMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewForm\FrmBrowserMain.Designer.cs">
+      <DependentUpon>FrmBrowserMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewForm\FrmBrowserPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewForm\FrmBrowserPage.Designer.cs">
+      <DependentUpon>FrmBrowserPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewForm\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewForm\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewForm\FrmPassWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewForm\FrmPassWord.Designer.cs">
+      <DependentUpon>FrmPassWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewForm\FrmReportConfigure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewForm\FrmReportConfigure.Designer.cs">
+      <DependentUpon>FrmReportConfigure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewForm\FrmSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewForm\FrmSetting.Designer.cs">
+      <DependentUpon>FrmSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewForm\Messages.cs" />
+    <Compile Include="ViewForm\MessageTimer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ViewForm\MessageTimer.Designer.cs">
+      <DependentUpon>MessageTimer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewForm\ReDept.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewForm\ReDept.Designer.cs">
+      <DependentUpon>ReDept.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewForm\TaskbarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewForm\TaskbarForm.Designer.cs">
+      <DependentUpon>TaskbarForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewForm\FrmAbout.resx">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewForm\FrmBrowserMain.resx">
+      <DependentUpon>FrmBrowserMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewForm\FrmBrowserPage.resx">
+      <DependentUpon>FrmBrowserPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewForm\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewForm\FrmPassWord.resx">
+      <DependentUpon>FrmPassWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewForm\FrmReportConfigure.resx">
+      <DependentUpon>FrmReportConfigure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewForm\FrmSetting.resx">
+      <DependentUpon>FrmSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewForm\ReDept.resx">
+      <DependentUpon>ReDept.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewForm\TaskbarForm.resx">
+      <DependentUpon>TaskbarForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>Copy "$(TargetPath)" "$(SolutionDir)Lobster.Winform\Output\WinAssembly"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

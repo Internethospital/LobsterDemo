@@ -1,4 +1,5 @@
-﻿using Core.Common.CoreFrame;
+﻿using Consul;
+using Core.Common.CoreFrame;
 using Core.Common.Helper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -14,6 +15,7 @@ using NLog.Extensions.Logging;
 using NLog.Web;
 using Ocelot.JwtAuthorize;
 using Swashbuckle.AspNetCore.Swagger;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -140,12 +142,15 @@ namespace Lobster.Service.Demo
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApplicationLifetime appLifeTime, ILoggerFactory loggerFactory)
         {
             //使用NLog作为日志记录工具
             loggerFactory.AddNLog();
             //引入Nlog配置文件
             env.ConfigureNLog("nlog.config");
+
+            //注册Consul
+            //UseConsul(app, appLifeTime);
 
             if (env.IsDevelopment())
             {
@@ -176,6 +181,56 @@ namespace Lobster.Service.Demo
         bool ValidatePermission(HttpContext httpContext)
         {
             return true;
+        }
+
+        /// <summary>
+        /// 启用Consul
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="appLife"></param>
+        void UseConsul(IApplicationBuilder app, IApplicationLifetime appLifeTime)
+        {
+            //注册服务
+            string ip = Configuration["Consul:ip"];
+            string port = Configuration["Consul:port"];
+            string serviceName = Configuration["Consul:servicename"];
+            string serviceId = serviceName + Guid.NewGuid();
+            string health = Configuration["Consul:health"];
+            string consulserver = Configuration["Consul:consulserver"];
+            string datacenter = Configuration["Consul:datacenter"];
+
+            Action<ConsulClientConfiguration> ConsulConfig = (config) =>
+            {
+                config.Address = new Uri(consulserver); //服务注册的地址，集群中任意一个地址
+                config.Datacenter = datacenter;
+            };
+
+            using (var consulClient = new ConsulClient(ConsulConfig))
+            {
+                AgentServiceRegistration asr = new AgentServiceRegistration
+                {
+                    Address = ip,
+                    Port = Convert.ToInt32(port),
+                    ID = serviceId,
+                    Name = serviceName,
+                    Check = new AgentServiceCheck
+                    {
+                        DeregisterCriticalServiceAfter = TimeSpan.FromSeconds(5),
+                        HTTP = $"http://{ip}:{port}/" + health,//健康检查访问的地址
+                        Interval = TimeSpan.FromSeconds(10),   //健康检查的间隔时间
+                        Timeout = TimeSpan.FromSeconds(5),     //多久代表超时
+                    },
+                };
+                consulClient.Agent.ServiceRegister(asr).Wait();
+            }
+            //注销Consul 
+            appLifeTime.ApplicationStopped.Register(() =>
+            {
+                using (var consulClient = new ConsulClient(ConsulConfig))
+                {
+                    consulClient.Agent.ServiceDeregister(serviceId).Wait();  //从consul集群中移除服务
+                }
+            });
         }
     }
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<cloudsoft name="BasicSetting" title="基础模块" version="1.0" author="kakake">
+		<AssemblyList>
+			<Assembly name="BasicSetting.Winform" path="WinAssembly/BasicSetting.Winform.dll" />
+		</AssemblyList>
+	</cloudsoft>
+</configuration>

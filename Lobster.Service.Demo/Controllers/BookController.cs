@@ -73,5 +73,12 @@ namespace Lobster.Service.Demo.Controllers
             response.AddData("result", result);
             return response;
         }
+
+
+        [HttpGet]
+        public object testCode()
+        {
+            return StatusCode(404);
+        }
     }
 }

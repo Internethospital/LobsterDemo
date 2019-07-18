@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <cloudsoft name="BooksDemo" title="书籍示例" version="1.0" author="kakake">
+    <baseinfo>
+      <data key="introduction" value="增删改查的book实例前台实现" />
+      <data key="updaterecord" value="" />
+    </baseinfo>
+    <controllerList>
+      <WinformController DllName="Books.Winform.dll" TypeName="Books.Winform.Controller.BookDemoController" ControllerName="BookDemoController" DefaultViewName="frmBookManager" ScriptFile="WinScript\BooksDemo1.0\controller\bookController.py">
+        
+      </WinformController>
+    </controllerList>
+    <AssemblyList>
+      <Assembly name="Books.Winform" path="WinAssembly/Books.Winform.dll" />
+    </AssemblyList>
+    <fileList>
+      <file path="WinScript\BooksDemo1.0\config.xml" />
+      <file path="WinScript\BooksDemo1.0\controller\bookController.py" />
+      <file path="WinScript\BooksDemo1.0\controller\__init__.py" />
+      <file path="WinScript\BooksDemo1.0\model\book.py" />
+      <file path="WinScript\BooksDemo1.0\model\globaltrace.py" />
+      <file path="WinScript\BooksDemo1.0\model\__init__.py" />
+      <file path="WinScript\BooksDemo1.0\view\frmBooks.py" />
+      <file path="WinScript\BooksDemo1.0\view\frmBooks.xml" />
+      <file path="WinScript\BooksDemo1.0\view\view.xml" />
+      <file path="WinScript\BooksDemo1.0\view\view_left1.xml" />
+      <file path="WinScript\BooksDemo1.0\view\view_right.xml" />
+      <file path="WinScript\BooksDemo1.0\view\__init__.py" />
+    </fileList>
+  </cloudsoft>
+</configuration>

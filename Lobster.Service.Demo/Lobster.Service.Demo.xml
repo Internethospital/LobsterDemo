@@ -76,5 +76,12 @@
             <param name="httpContext"></param>
             <returns></returns>
         </member>
+        <member name="M:Lobster.Service.Demo.Startup.UseConsul(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IApplicationLifetime)">
+            <summary>
+            启用Consul
+            </summary>
+            <param name="app"></param>
+            <param name="appLife"></param>
+        </member>
     </members>
 </doc>
