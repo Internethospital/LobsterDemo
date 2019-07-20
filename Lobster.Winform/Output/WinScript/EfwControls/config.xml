@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<configuration>
-	<cloudsoft name="EfwControls" title="控件示例" version="1.0" author="kakake">
-		<AssemblyList>
-			<Assembly name="EfwControls.Demo" path="WinAssembly/EfwControls.Demo.dll" />
-			<Assembly name="EfwControls.HISControl.Demo" path="WinAssembly/EfwControls.HISControl.Demo.dll" />
-		</AssemblyList>
-	</cloudsoft>
-</configuration>

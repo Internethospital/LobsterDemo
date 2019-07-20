@@ -9,9 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "efwplusWinform", "Lobster.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfwControls", "Lobster.Winform\EfwControls\EfwControls.csproj", "{A7618987-492B-4D5D-92C2-0381EC45817F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginWeb.Winform", "Lobster.Winform\LoginWeb.Winform\LoginWeb.Winform.csproj", "{FFADF00A-09F3-4F94-983C-F64D062F83BC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Books.Winform", "Lobster.Winform\Books.Winform\Books.Winform.csproj", "{37492867-21A2-4102-8F30-ECCAFA84EDEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Debugger.Winform", "Lobster.Winform\Debugger.Winform\Debugger.Winform.csproj", "{D175E674-F497-453D-A01E-379018AD597E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "efwplusStudio", "Lobster.Winform\efwplusStudio\efwplusStudio.csproj", "{323F8CD7-B514-4803-916C-AEA78F543DFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,14 +47,6 @@ Global
 		{A7618987-492B-4D5D-92C2-0381EC45817F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A7618987-492B-4D5D-92C2-0381EC45817F}.Release|x86.ActiveCfg = Release|x86
 		{A7618987-492B-4D5D-92C2-0381EC45817F}.Release|x86.Build.0 = Release|x86
-		{FFADF00A-09F3-4F94-983C-F64D062F83BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FFADF00A-09F3-4F94-983C-F64D062F83BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FFADF00A-09F3-4F94-983C-F64D062F83BC}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{FFADF00A-09F3-4F94-983C-F64D062F83BC}.Debug|x86.Build.0 = Debug|Any CPU
-		{FFADF00A-09F3-4F94-983C-F64D062F83BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FFADF00A-09F3-4F94-983C-F64D062F83BC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FFADF00A-09F3-4F94-983C-F64D062F83BC}.Release|x86.ActiveCfg = Release|Any CPU
-		{FFADF00A-09F3-4F94-983C-F64D062F83BC}.Release|x86.Build.0 = Release|Any CPU
 		{37492867-21A2-4102-8F30-ECCAFA84EDEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{37492867-21A2-4102-8F30-ECCAFA84EDEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37492867-21A2-4102-8F30-ECCAFA84EDEA}.Debug|x86.ActiveCfg = Debug|x86
@@ -61,6 +55,22 @@ Global
 		{37492867-21A2-4102-8F30-ECCAFA84EDEA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{37492867-21A2-4102-8F30-ECCAFA84EDEA}.Release|x86.ActiveCfg = Release|x86
 		{37492867-21A2-4102-8F30-ECCAFA84EDEA}.Release|x86.Build.0 = Release|x86
+		{D175E674-F497-453D-A01E-379018AD597E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D175E674-F497-453D-A01E-379018AD597E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D175E674-F497-453D-A01E-379018AD597E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D175E674-F497-453D-A01E-379018AD597E}.Debug|x86.Build.0 = Debug|Any CPU
+		{D175E674-F497-453D-A01E-379018AD597E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D175E674-F497-453D-A01E-379018AD597E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D175E674-F497-453D-A01E-379018AD597E}.Release|x86.ActiveCfg = Release|Any CPU
+		{D175E674-F497-453D-A01E-379018AD597E}.Release|x86.Build.0 = Release|Any CPU
+		{323F8CD7-B514-4803-916C-AEA78F543DFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{323F8CD7-B514-4803-916C-AEA78F543DFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{323F8CD7-B514-4803-916C-AEA78F543DFE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{323F8CD7-B514-4803-916C-AEA78F543DFE}.Debug|x86.Build.0 = Debug|Any CPU
+		{323F8CD7-B514-4803-916C-AEA78F543DFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{323F8CD7-B514-4803-916C-AEA78F543DFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{323F8CD7-B514-4803-916C-AEA78F543DFE}.Release|x86.ActiveCfg = Release|Any CPU
+		{323F8CD7-B514-4803-916C-AEA78F543DFE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

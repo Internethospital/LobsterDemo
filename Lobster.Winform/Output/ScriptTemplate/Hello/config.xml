@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <cloudsoft name="Hello" title="Hello" version="1.0" author="kakake">
+    <baseinfo>
+      <data key="introduction" value="软件介绍" />
+      <data key="updaterecord" value="更新记录" />
+    </baseinfo>
+    <controllerList>
+      <WinformController ControllerName="Controller01" DllName="efwplusWinform.dll" TypeName="EFWCoreLib.WinformFrame.Controller.WinformController" DefaultViewName="View01" ScriptFile="controller\Controller01.py">
+        <WinformView Name="View01" DllName="efwplusWinform.dll" ViewTypeName="EFWCoreLib.CoreFrame.Business.BaseFormBusiness" ViewFile="view\View01.xml" Memo="" />
+      </WinformController>
+    </controllerList>
+    <AssemblyList>
+    </AssemblyList>
+    <fileList>
+      <file path="cloudsoft.py" />
+      <file path="config.xml" />
+      <file path="__init__.py" />
+      <file path="controller\Controller01.py" />
+      <file path="controller\__init__.py" />
+      <file path="model\Model01.py" />
+      <file path="model\__init__.py" />
+      <file path="view\View01.py" />
+      <file path="view\View01.xml" />
+      <file path="view\__init__.py" />
+    </fileList>
+  </cloudsoft>
+</configuration>

@@ -8,8 +8,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("efwplusClient")]
 [assembly: AssemblyDescription("警告：本计算机程序受著作权法和国际条约保护。如未经授权而擅自复制或传播本程序（或其中任何部分），将受到严厉的民事及刑事制裁，并将在法律许可范围内受到最大程度的起诉。")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("湖南誉昌信息科技有限公司")]
-[assembly: AssemblyProduct("云HIS客户端")]
+[assembly: AssemblyCompany("Lobster")]
+[assembly: AssemblyProduct("Lobster客户端")]
 [assembly: AssemblyCopyright("Copyright © 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 //可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值，
 // 方法是按如下所示使用“*”: :
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.1.1.1")]
-[assembly: AssemblyFileVersion("2.1.1.1")]
+[assembly: AssemblyVersion("1.1.1.1")]
+[assembly: AssemblyFileVersion("1.1.1.1")]

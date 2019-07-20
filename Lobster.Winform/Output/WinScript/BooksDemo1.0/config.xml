@@ -6,26 +6,24 @@
       <data key="updaterecord" value="" />
     </baseinfo>
     <controllerList>
-      <WinformController DllName="Books.Winform.dll" TypeName="Books.Winform.Controller.BookDemoController" ControllerName="BookDemoController" DefaultViewName="frmBookManager" ScriptFile="WinScript\BooksDemo1.0\controller\bookController.py">
-        
+      <WinformController ControllerName="BookDemoControllerEx" DllName="efwplusWinform.dll" TypeName="efwplusWinform.Controller.WinformController" DefaultViewName="frmBookManagerEx" ScriptFile="controller\BookDemoControllerEx.py">
+        <WinformView Name="frmBooks" DllName="efwplusWinform.dll" ViewTypeName="efwplusWinform.Business.BaseFormBusiness" ViewFile="view\frmBooks.xml" Memo="" />
       </WinformController>
     </controllerList>
     <AssemblyList>
       <Assembly name="Books.Winform" path="WinAssembly/Books.Winform.dll" />
     </AssemblyList>
     <fileList>
-      <file path="WinScript\BooksDemo1.0\config.xml" />
-      <file path="WinScript\BooksDemo1.0\controller\bookController.py" />
-      <file path="WinScript\BooksDemo1.0\controller\__init__.py" />
-      <file path="WinScript\BooksDemo1.0\model\book.py" />
-      <file path="WinScript\BooksDemo1.0\model\globaltrace.py" />
-      <file path="WinScript\BooksDemo1.0\model\__init__.py" />
-      <file path="WinScript\BooksDemo1.0\view\frmBooks.py" />
-      <file path="WinScript\BooksDemo1.0\view\frmBooks.xml" />
-      <file path="WinScript\BooksDemo1.0\view\view.xml" />
-      <file path="WinScript\BooksDemo1.0\view\view_left1.xml" />
-      <file path="WinScript\BooksDemo1.0\view\view_right.xml" />
-      <file path="WinScript\BooksDemo1.0\view\__init__.py" />
+      <file path="cloudsoft.py" />
+      <file path="config.xml" />
+      <file path="__init__.py" />
+      <file path="controller\BookDemoControllerEx.py" />
+      <file path="controller\__init__.py" />
+      <file path="model\book.py" />
+      <file path="model\__init__.py" />
+      <file path="view\frmBooks.py" />
+      <file path="view\frmBooks.xml" />
+      <file path="view\__init__.py" />
     </fileList>
   </cloudsoft>
 </configuration>

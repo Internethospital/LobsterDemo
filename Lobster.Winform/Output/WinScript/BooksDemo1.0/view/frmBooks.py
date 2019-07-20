@@ -2,8 +2,8 @@
 __author__ = 'kakake'
 
 import sys
-import model.globaltrace as glo
-trace=glo.get_trace()
+import cloudsoft as soft
+trace=soft.get_trace()
 trace.printlog('begin load frmBooks.py')
 
 from model.book import Book
@@ -12,7 +12,7 @@ from model.book import Book
 ##############################################################
 class frmBooks(object):
   def __init__(self, _controller):
-    self.view = _controller.RenderList['frmBookManagerEx']
+    self.view = _controller.RenderList['frmBooks']
     self.currbook = None
     self.ViewState={'默认':1,'编辑':2}
 

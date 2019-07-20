@@ -1,9 +1,10 @@
 # -*- coding: UTF-8 -*-
 __author__ = 'kakake'
 import sys
-import model.globaltrace as glo
-trace=glo.get_trace()
+import cloudsoft as soft
+trace=soft.get_trace()
 trace.printlog('begin load book.py')
+#soft.trace.printlog(soft.Database['connectionString'])
  
 #实体类
 ##############################################################

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<viewform>
+  <winform size="880,500" tabindex="0" text="Hello World" name="View01" visible="false" width="880">
+    <panel type="panelEx" dock="fill" location="0,0" name="PanelEx1" size="864,461" tabindex="0" width="864">
+      <button type="buttonX" text="Hello World" location="371,113" name="btnHello" size="95,23" tabindex="0" width="95" />
+    </panel>
+  </winform>
+</viewform>

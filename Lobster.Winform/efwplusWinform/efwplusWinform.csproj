@@ -114,6 +114,7 @@
     </Compile>
     <Compile Include="Common\ControlExtensions.cs" />
     <Compile Include="Common\ConvertExtend.cs" />
+    <Compile Include="Common\DbUtility.cs" />
     <Compile Include="Common\DESEncryptor.cs" />
     <Compile Include="Common\ExcelHelper.cs" />
     <Compile Include="Common\Log.cs" />

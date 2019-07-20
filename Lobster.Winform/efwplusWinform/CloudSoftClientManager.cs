@@ -102,6 +102,7 @@ namespace efwplusWinform
             csClient.SoftTitle = "默认软件模块";
             csClient.Version = "1.0";
             csClient.Author = "kakake";
+            csClient.Path = "";
             csClient.BaseInfo = new Dictionary<string, string>();
             csClient.AssemblyList = new List<string[]>();
             csClient.controllerInfoList = new List<WinformControllerInfo>();
@@ -191,6 +192,7 @@ namespace efwplusWinform
                     client.Version = xn_cloudsoft.Attributes["version"].Value;
                 if (xn_cloudsoft.Attributes["author"] != null)
                     client.Author = xn_cloudsoft.Attributes["author"].Value;
+                client.Path = path;
                 client.BaseInfo = new Dictionary<string, string>();
                 client.AssemblyList = new List<string[]>();
                 client.fileList = new List<string[]>();
@@ -501,6 +503,11 @@ namespace efwplusWinform
         public string Author { get; set; }
 
         /// <summary>
+        /// 云软件的路径，除了default为空，其他云软件必须有路径
+        /// </summary>
+        public string Path { get; set; }
+
+        /// <summary>
         /// 控制器配置信息
         /// </summary>
         public List<WinformControllerInfo> controllerInfoList { get; set; }
@@ -585,6 +592,13 @@ namespace efwplusWinform
         /// <returns></returns>
         public WinformController GetWinformControllerObj(string controllername, string controllerid)
         {
+            //查询云软件是否有最新版本，有新版本就行升级，并清空此软件的控制器对象
+            //if (UploadNewSoft())
+            //{
+            //    //清空控制器对象
+            //    ClearAllWinformController();
+            //}
+
             lock (WinformControllerObjDic)
             {
                 if (WinformControllerObjDic.ContainsKey(controllerid))
@@ -672,7 +686,8 @@ namespace efwplusWinform
                         List<string> filelist = new List<string>();
                         foreach (string s in arr)
                         {
-                            string viewfile = AppDomain.CurrentDomain.BaseDirectory + s;
+                            FileInfo fileinfo = new FileInfo(AppDomain.CurrentDomain.BaseDirectory + Path);
+                            string viewfile = fileinfo.DirectoryName + "\\" + s;
                             if (File.Exists(viewfile))
                             {
                                 filelist.Add(viewfile);
@@ -706,7 +721,8 @@ namespace efwplusWinform
             {
                 if (string.IsNullOrEmpty(wattr.ScriptFile) == false)//配置了脚本文件
                 {
-                    string scriptfile = AppDomain.CurrentDomain.BaseDirectory + wattr.ScriptFile;
+                    FileInfo fileinfo = new FileInfo(AppDomain.CurrentDomain.BaseDirectory + Path);
+                    string scriptfile = fileinfo.DirectoryName + "\\" + wattr.ScriptFile;
                     if (File.Exists(scriptfile))
                     {
                         ScriptTrace trace = new ScriptTrace(controller.ControllerId, scriptfile);

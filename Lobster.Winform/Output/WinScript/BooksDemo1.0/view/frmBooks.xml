@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<viewform> 
-  <winform size="880,500" tabindex="0" text="Books" name="frmBookManagerEx" visible="false" width="880">
-    <panel type="panelEx" text="groupPanel" dock="fill" location="0,0" name="PanelEx1" size="661,462" tabindex="0" width="661">
-      <datagrid type="efwdatagrid" dock="fill" location="0,27" name="gridbooks" size="661,435" tabindex="0" width="661" AllowUserToAddRows="false">
+<viewform>
+  <winform size="880,500" tabindex="0" text="Books" name="frmBooks" visible="false" width="880">
+    <panel type="panelEx" text="groupPanel" dock="fill" location="0,0" name="PanelEx1" size="661,461" tabindex="0" width="661">
+      <datagrid type="efwdatagrid" dock="fill" location="0,27" name="gridbooks" size="661,434" tabindex="0" width="661">
         <column type="datagridtextbox" datapropertyname="Id" headertext="编码" miniwidth="50" name="column1" />
         <column type="datagridtextbox" autosizemode="fill" datapropertyname="BookName" headertext="书籍名称" miniwidth="50" name="column2" />
         <column type="datagridtextbox" datapropertyname="BuyDate" headertext="购买时间" miniwidth="50" name="column3" />
@@ -16,9 +16,10 @@
         <toolitem type="buttonItem" text="退出" size="35,24" name="btnclose" />
       </tool>
     </panel>
-    <panel type="expandableSplitter" dock="right" location="661,0" name="ExpandableSplitter1" size="3,462" tabindex="1" width="3" />
-    <panel type="panelEx" dock="right" location="664,0" name="PanelEx2" size="200,462" tabindex="2" width="200">
-      <label type="labelX" text="很好名称" location="14,24" name="LabelX1" size="65,12" tabindex="0" width="65" />
+    <panel type="expandableSplitter" dock="right" location="661,0" name="ExpandableSplitter1" size="3,461" tabindex="1" width="3" />
+    <panel type="panelEx" dock="right" location="664,0" name="PanelEx2" size="200,461" tabindex="2" width="200">
+      <button type="button" text="Button1" location="14,252" name="Button1" size="75,23" tabindex="5" width="75" />
+      <label type="labelX" text="书籍名称" location="14,12" name="LabelX1" size="65,24" tabindex="0" width="65" />
       <input type="textBoxX" text="人月神话" location="14,40" name="txtBookName" size="152,15" tabindex="0" width="152" />
       <label type="labelX" text="购买价格" location="14,71" name="LabelX2" size="65,12" tabindex="1" width="65" />
       <input type="textBoxX" location="14,87" name="txtPrice" size="152,15" tabindex="0" width="152" />

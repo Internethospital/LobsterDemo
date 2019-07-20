@@ -18,6 +18,8 @@ using DevComponents.DotNetBar;
 using Microsoft.Scripting.Hosting;
 using efwplusWinform.ViewRender;
 using efwplusWinform.Business;
+using efwplusWinform.Common;
+using Newtonsoft.Json;
 
 namespace efwplusWinform.Controller
 {
@@ -428,6 +430,88 @@ namespace efwplusWinform.Controller
             return MessageBox.Show(text, "提示", msgBoxBtn, msgBoxIcon, defaultBtn);
         }
 
+        #region 提供给python调用
         
+        public DataTable json2dt(string json)
+        {
+            return (DataTable)Newtonsoft.Json.JsonConvert.DeserializeObject(json, typeof(DataTable));
+        }
+
+        public string dt2json(DataTable dt)
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(dt);
+        }
+        /// <summary>
+        /// 获取登录信息
+        /// </summary>
+        /// <returns></returns>
+        public object logininfo()
+        {
+            return LoginUserInfo;
+        }
+
+
+        #region 操作数据库
+
+        public string dbquery(string connString, string dbType, string sql)
+        {
+            DbUtility db = new DbUtility(connString, getDbProviderType(dbType));
+            DataTable data = db.ExecuteDataTable(sql, null);
+            return JsonConvert.SerializeObject(data);
+        }
+
+        public int dbnonquery(string connString, string dbType, string sql)
+        {
+            DbUtility db = new DbUtility(connString, getDbProviderType(dbType));
+            return db.ExecuteNonQuery(sql, null);
+        }
+
+        private DbProviderType getDbProviderType(string dbType)
+        {
+            DbProviderType type = DbProviderType.SqlServer;
+            switch (dbType)
+            {
+                case "SqlServer":
+                    type = DbProviderType.SqlServer;
+                    break;
+                case "MySql":
+                    type = DbProviderType.MySql;
+                    break;
+                case "SQLite":
+                    type = DbProviderType.SQLite;
+                    break;
+                case "Oracle":
+                    type = DbProviderType.Oracle;
+                    break;
+                case "ODBC":
+                    type = DbProviderType.ODBC;
+                    break;
+                case "OleDb":
+                    type = DbProviderType.OleDb;
+                    break;
+                case "Firebird":
+                    type = DbProviderType.Firebird;
+                    break;
+                case "PostgreSql":
+                    type = DbProviderType.PostgreSql;
+                    break;
+                case "DB2":
+                    type = DbProviderType.DB2;
+                    break;
+                case "Informix":
+                    type = DbProviderType.Informix;
+                    break;
+                case "SqlServerCe":
+                    type = DbProviderType.SqlServerCe;
+                    break;
+            }
+            return type;
+        }
+
+        #endregion
+
+        #endregion
+
+
     }
 }
