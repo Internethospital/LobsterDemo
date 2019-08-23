@@ -26,7 +26,7 @@ namespace Books.Winform.Controller
         {
             _ifrmbookmanager.viewState = frmBookState.默認;
             //实例化RestRequest
-            var request = new RestRequest("book/getbookdata");
+            var request = new RestRequest("/demo/v1/book/getbookdata");
             //增加参数
             request.AddQueryParameter("page", "1");
             request.AddQueryParameter("limit", "10");
@@ -63,7 +63,7 @@ namespace Books.Winform.Controller
         public void SaveBook()
         {
             //实例化RestRequest
-            var request = new RestRequest("book/savebook");
+            var request = new RestRequest("/demo/v1/book/savebook");
             request.Method = Method.POST;
             request.AddJsonBody(_ifrmbookmanager.currBook);
             var responseData = InvokeService("Lobster.Service.Demo", request);
@@ -77,7 +77,7 @@ namespace Books.Winform.Controller
         public void DeleteBook()
         {
             //实例化RestRequest
-            var request = new RestRequest("/book/deletebook");
+            var request = new RestRequest("/demo/v1/book/deletebook");
             //增加参数
             request.AddParameter("Id", _ifrmbookmanager.currBook.Id);
             request.Method = Method.POST;
