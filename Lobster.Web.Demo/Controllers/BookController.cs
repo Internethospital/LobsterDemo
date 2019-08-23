@@ -78,10 +78,10 @@ namespace Lobster.Web.Demo.Controllers
             //实例化RestRequest
             var request = new RestRequest("/demo/v1/book/deletebook");
             //增加参数
-            request.AddParameter("Id", Id);
+            request.AddJsonBody(Id);
+
             //执行请求
             var responseData = RestHelper.ExecutePost<Response>("Lobster.Service.Demo", request);
-
             return responseData;
         }
     }

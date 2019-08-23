@@ -65,7 +65,7 @@ namespace Lobster.Service.Demo.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult<Response> DeleteBook([FromForm]int Id)
+        public ActionResult<Response> DeleteBook([FromBody]int Id)
         {
             var response = new Response();
 
@@ -74,11 +74,5 @@ namespace Lobster.Service.Demo.Controllers
             return response;
         }
 
-
-        [HttpGet]
-        public object testCode()
-        {
-            return StatusCode(404);
-        }
     }
 }
