@@ -33,12 +33,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Lobster.Service.Demo.Controllers.BookController.DeleteBook2(System.Int32,System.Int32)">
-            <summary>
-            删除书籍
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:Lobster.Service.Demo.Dao.BookDao">
             <summary>
             Demo DAO

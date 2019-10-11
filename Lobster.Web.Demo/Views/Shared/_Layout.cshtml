@@ -10,9 +10,75 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
     <link href="/uiframe/layuiadmin/layui/css/layui.css" rel="stylesheet" />
-    <link href="/uiframe/layuiadmin/style/admin.css" rel="stylesheet" /> 
+    <link href="/uiframe/layuiadmin/style/admin.css" rel="stylesheet" />
     <link href="/uiframe/layuiadmin/layui/css/modules/layui-icon-extend/iconfont.css" rel="stylesheet" />
     <script src="/uiframe/layuiadmin/layui/layui.js"></script>
+    <script src="/uiframe/jquery-3.4.1.min.js"></script>
+    <script>
+
+        var ssotoken = localStorage.getItem("sso_token");
+        var url = window.location.href;
+        var appkey = "XYS20190327111229459";
+        var ssoauthurl = "https://localhost:7701/Authorize/VerifyToken_Jsonp";
+        var ssologinurl = "https://localhost:7701/Login/Index";
+
+        function VerifyToken_Jsonp() {
+            $.ajax({
+                type: "get",
+                url: ssoauthurl,
+                dataType: "jsonp",
+                data: { ssotoken: ssotoken, appkey: appkey, url: url },
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                jsonp: "callback",
+                success: function (res) {
+                    if (res.code == 0) {
+                        //缓存到浏览器token、right
+                        localStorage.setItem("sso_token", res.ssotoken);
+                        localStorage.setItem("sso_right", res.right);
+                        //缓存到本站点后台Session（可不缓存）
+                        //SSOUserAuth(res.ssotoken, res.right);
+                    }
+                    else {
+                        //移除token、right
+                        localStorage.removeItem("sso_token");
+                        localStorage.removeItem("sso_right");
+                        if (parent) {
+                            parent.window.location.href = ssologinurl;
+                        } else {
+                            window.location.href = ssologinurl;
+                        }
+                    }
+                },
+                error: function (res) {
+
+                }
+            });
+        }
+        //缓存到本站点后台Session
+        function SSOUserAuth(_ssotoken,_right) {
+            $.ajax({
+                url: "/Login/SSOUserAuth",
+                data: {
+                    ssotoken: _ssotoken,
+                    appkey: appkey,
+                    right: _right
+                },
+                type: "post",
+                dataType: "json",
+                success: function (res) {
+                    
+                },
+                done: function () {
+
+                }
+            });
+        }
+
+        VerifyToken_Jsonp();
+    </script>
     @RenderSection("header", false)
 </head>
 <body class="childrenBody">

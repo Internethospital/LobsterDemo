@@ -6,6 +6,7 @@ using Lobster.Service.Demo.Dao;
 using System;
 using Lobster.Service.Demo.Entity;
 using Microsoft.AspNetCore.Cors;
+using qcloudsms_csharp;
 
 namespace Lobster.Service.Demo.Controllers
 {
@@ -77,5 +78,25 @@ namespace Lobster.Service.Demo.Controllers
             return response;
         }
 
+        [HttpGet]
+        public void TestMessage()
+        {
+            // 短信应用 SDK AppID
+            int appid = 1400268227;
+            // 短信应用 SDK AppKey
+            string appkey = "c1d2cbfb30b5df4e8f0f4be3bd905964";
+            // 需要发送短信的手机号码
+            string[] phoneNumbers = { "21212313123", "12345678902", "12345678903" };
+            // 短信模板 ID，需要在短信控制台中申请
+            int templateId = 440141; // NOTE: 这里的模板 ID`7839`只是示例，真实的模板 ID 需要在短信控制台中申请
+                                   // 签名
+            string smsSign = "网医智捷"; // NOTE: 签名参数使用的是`签名内容`，而不是`签名ID`。这里的签名"腾讯云"只是示例，真实的签名需要在短信控制台申请
+
+            SmsSingleSender ssender = new SmsSingleSender(appid, appkey);
+            var result = ssender.sendWithParam("86", "18942561085",
+                templateId, new[] { "5678","3" }, smsSign, "", "");
+            Console.WriteLine(result);
+
+        }
     }
 }
